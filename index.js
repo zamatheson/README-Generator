@@ -1,13 +1,70 @@
-// TODO: Include packages needed for this application
+var fileGenerator = require("./generateMarkdown.js");
+var fs = require("fs");
+const { default: inquirer } = require("inquirer");
+var inquierer = require("inquirer");
 
-// TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {
+        type: "input",
+        message: "What is the title of your respository?",
+        name: "title"
+    }, {
+        type: "input",
+        message: "Please give your logo information if applicable",
+        name: "logo"
+    }, {
+        type: "input",
+        message: "What is your GitHub username?",
+        name: "username"
+    }, {
+        type: "input",
+        message: "Link your GitHub profile here:",
+        name: "GitHub",
+    }, {
+        type: "input",
+        message: "What is your email?",
+        name: "email"
+    }, {
+        type: "list",
+        name: "license",
+        message: "Please select a license to use:",
+        choices: [
+            "APACHE 2.0",
+            "BSD 3",
+            "GVL-GPL 3.0",
+            "MIT",
+            "None"
+        ],
+    }, {
+        type: "input",
+        message: "Write a repository description now.",
+        name: "description"
+    }, {
+        type: "input",
+        message: "May others contribute?",
+        name: "contribute",
+    }, {
+        type: "input",
+        message: "Please include any test(s) if applicable",
+        name: "test"
+    }, {
+        type: "input",
+        message: "Please include a screenshot of your application",
+        name: "screenshot"
+    }, {
+        type: "input",
+        message: "Please state the end goal for your application",
+        name: "goal"
+    }
+];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+inquirer.prompt(questions).then(function(response) {
+    console.log(response);
 
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+    var content = generateMarkdown(response);
+    console.log(content);
+    fs.writeFile("./ReadMe.md", content, function(err) {
+        if (err) throw err
+        console.log("success");
+    });
+});
