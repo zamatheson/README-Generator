@@ -1,7 +1,7 @@
-var fileGenerator = require("./generateMarkdown.js");
+var generateMarkdown = require("./generateMarkdown.js");
 var fs = require("fs");
 const { default: inquirer } = require("inquirer");
-var inquierer = require("inquirer");
+var inquirer = require("inquirer");
 
 const questions = [
     {
