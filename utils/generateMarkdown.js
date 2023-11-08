@@ -1,34 +1,31 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
   if (license !== 'no license') {
     return `
-    ![badge] (// insert badge)
+    ![badge]
     `;
   } else {
     return " ";
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+
 function renderLicenseLink(license) {
   if (license !== 'no license') {
     return `
-    [${license}] (// insert link)
+    [${license}])
     `;
   } else {
     return " ";
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+
 function renderLicenseSection(license) {
   if (license !== 'no license') {
     if (license !== 'no license') {
       return `
-      ## [License] (#table-of-contents)
+      ## [License]
       This application uses the following license:
       ${renderLicenseLink(license)}
       `;
@@ -40,29 +37,45 @@ function renderLicenseSection(license) {
 
 function generateMarkdown(data) {
   return `
+
   # ${data.title}
   ${renderLicenseBadge(data.license)}
 
   ## Table-of-Contents
+    #Description
+    #Installation
+    #Usage
+    #License
+    #Contributions
+    #Questions
 
-  * [Description](#description)
+  * [Description] (#description)
+  ${data.description}
+
   * [Installation] (#installation)
+  ${data.installation}
+
   * [Usage] (#usage)
-
-  ${data.what}
-  ${data.why}
-  ${data.how}
-
-  ## [Installation] (#table-of-contents)
-  $(data.installation)
-
-  ## [Usage](#table-of-contents)
   ${data.usage}
 
+  * [License] (#license)
   ${renderLicenseSection(data.license)}
-  ## [Contributing] (#table-of-contents)
 
-  ## [Questions] (table-of-contents)
+  ## [Contributing] (#contributing)
+  ${data.contribute}
+
+  ## [Questions] (#questions)
+  ${data.questions}
+
+  ## [Tests] (#tests)
+  ${data.test}
+
+  ## [Screenshot] (#screenshot)
+  ${data.screenshot}
+
+  ## [End Goal] (#endgoal)
+  ${data.goal}
+
   Please contact me through the following links:
   [GitHub](https://github.com/${data.githubUsername})
   [Email: ${data.email}](mailto:${data.email})  
