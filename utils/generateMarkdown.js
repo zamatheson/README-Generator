@@ -62,10 +62,6 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
   ## [Contributing] (#table-of-contents)
 
-  ${renderContributionSection(data.confirmContributers, data.contribute)}
-  ## [Tests] (#table-of-contents)
-  ${data.tests}
-  
   ## [Questions] (table-of-contents)
   Please contact me through the following links:
   [GitHub](https://github.com/${data.githubUsername})

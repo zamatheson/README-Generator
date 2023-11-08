@@ -1,7 +1,8 @@
-var generateMarkdown = require("./generateMarkdown.js");
-var fs = require("fs");
-const { default: inquirer } = require("inquirer");
-var inquirer = require("inquirer");
+let generateMarkdown = require("./utils/generateMarkdown.js");
+let fs = require("fs");
+const path = require("path");
+const inquirer = require("inquirer");
+
 
 const questions = [
     {
@@ -58,13 +59,14 @@ const questions = [
     }
 ];
 
-inquirer.prompt(questions).then(function(response) {
-    console.log(response);
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
 
-    var content = generateMarkdown(response);
-    console.log(content);
-    fs.writeFile("./ReadMe.md", content, function(err) {
-        if (err) throw err
-        console.log("success");
+function init() {
+    inquirer.prompt(questions).then((responses) => {
+        console.log("README.md File Loading...");
+        writeToFile("./GeneratedREADME.md", generateMarkdown({...responses}));
     });
-});
+}
+init();
