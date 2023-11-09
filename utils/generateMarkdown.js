@@ -25,8 +25,7 @@ function renderLicenseSection(license) {
   if (license !== 'no license') {
     if (license !== 'no license') {
       return `
-      ## [License]
-      This application uses the following license:
+This application uses the following license:
       ${renderLicenseLink(license)}
       `;
     } else {
@@ -61,19 +60,19 @@ function generateMarkdown(data) {
   * [License] (#license)
   ${renderLicenseSection(data.license)}
 
-  ## [Contributing] (#contributing)
+  * [Contributing] (#contributing)
   ${data.contribute}
 
-  ## [Questions] (#questions)
+  * [Questions] (#questions)
   ${data.questions}
 
-  ## [Tests] (#tests)
+  * [Tests] (#tests)
   ${data.test}
 
-  ## [Screenshot] (#screenshot)
+  * [Screenshot] (#screenshot)
   ${data.screenshot}
 
-  ## [End Goal] (#endgoal)
+  * [End Goal] (#endgoal)
   ${data.goal}
 
   Please contact me through the following links:
