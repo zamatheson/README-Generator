@@ -12,7 +12,7 @@ const questions = [
     }, {
         type: "input",
         message: "Please describe your project.",
-        name: "logo"
+        name: "description"
     }, {
         type: "input",
         message: "Please describe the installation process.",
@@ -53,10 +53,6 @@ const questions = [
         type: "input",
         message: "What is your email?",
         name: "email"
-    }, {
-        type: "input",
-        message: "Write a repository description now.",
-        name: "description"
     }, {
         type: "input",
         message: "May others contribute?",

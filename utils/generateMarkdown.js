@@ -1,44 +1,8 @@
-
-function renderLicenseBadge(license) {
-  if (license !== 'no license') {
-    return `
-    ![badge]
-    `;
-  } else {
-    return " ";
-  }
-}
-
-
-function renderLicenseLink(license) {
-  if (license !== 'no license') {
-    return `
-    [${license}])
-    `;
-  } else {
-    return " ";
-  }
-}
-
-
-function renderLicenseSection(license) {
-  if (license !== 'no license') {
-    if (license !== 'no license') {
-      return `
-This application uses the following license:
-      ${renderLicenseLink(license)}
-      `;
-    } else {
-      return " ";
-    }
-  }
-}
-
 function generateMarkdown(data) {
-  return `
+  return `## ${data.title}
 
-  # ${data.title}
-  ${renderLicenseBadge(data.license)}
+  ## Badge
+  * ${data.badge}
 
   ## Table-of-Contents
     #Description
@@ -48,36 +12,38 @@ function generateMarkdown(data) {
     #Contributions
     #Questions
 
-  * [Description] (#description)
-  ${data.description}
+  ## Description
+  * ${data.description}
 
-  * [Installation] (#installation)
-  ${data.installation}
+  ## Installation
+  * ${data.installation}
 
-  * [Usage] (#usage)
-  ${data.usage}
+  ## Usage
+  * ${data.usage}
 
-  * [License] (#license)
-  ${renderLicenseSection(data.license)}
+  ## License
+  * This application uses the following license:
+     => ${data.license}
 
-  * [Contributing] (#contributing)
-  ${data.contribute}
+  ## Contributing
+  * ${data.contribute}
 
-  * [Questions] (#questions)
-  ${data.questions}
+  ## Questions
+  * ${data.questions}
 
-  * [Tests] (#tests)
-  ${data.test}
+  ## Tests
+  * ${data.test}
 
-  * [Screenshot] (#screenshot)
-  ${data.screenshot}
+  ## Screenshot
+  * ${data.screenshot}
 
-  * [End Goal] (#endgoal)
-  ${data.goal}
+  ## End Goal
+  * ${data.goal}
 
+  ## Contact
   Please contact me through the following links:
-  [GitHub](https://github.com/${data.githubUsername})
-  [Email: ${data.email}](mailto:${data.email})  
+  * [GitHub](https://github.com/${data.githubUsername})
+  * [Email: ${data.email}](mailto:${data.email})  
   `;
 }
 
