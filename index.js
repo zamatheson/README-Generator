@@ -39,10 +39,6 @@ const questions = [
         name: "contribute"
     }, {
         type: "input",
-        message: "Insert FAQ here.",
-        name: "questions"
-    }, {
-        type: "input",
         message: "What is your GitHub username?",
         name: "username"
     }, {
